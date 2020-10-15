@@ -1,0 +1,43 @@
+
+
+* {
+  font-family: 'Source Sans Pro',sans-serif;
+font: black;
+}
+
+body {
+border: 15px solid #bdc3c7;
+padding: 15px
+}
+
+hr {
+  color: #f1f1f1;
+}
+
+h1 {
+  text-transform: capitalize;
+}
+div {}
+
+.date {
+  color: #3498db;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+
+.firstParagraph {
+  border-left: 5px solid #bdc3c7;
+  /*border: 3px solid gray;*/
+  padding-left: 10px;
+
+}
+/*
+border color: #bdc3c7;
+date color: #3498db;
+h2 color
+font: source sans pro, available on google fonts and make sure to
+change font family to source sans pro
+
+The hr element is a line
+*/

@@ -1,0 +1,28 @@
+img {
+width: 30%;
+/* changing the width makes the photos, we can also use % for width
+to make the width a percentage of the actual photo  */
+float: left;
+/* float is used to take away the dummy white space that
+HTML automatically uses to space out photos, and instead lets
+you customize the space and where the photos start from, in this
+case it is the left. */
+margin: 1.66%;
+}
+/*
+Each side of the photo is a margin so this  >|_|<  >|_|<  >|_|< would be 6 margins
+we would then divide 10% (b/c three images together is 30%)
+by 6 = 10/6 =1.66  margin =1.66%
+*/
+h1 {
+  font-family: Raleway;
+  font-size: 23px;
+  font-weight: 800;
+  padding-bottom: 20px; /* padding is area between border & element */
+  border-bottom: 2px solid #f1f1f1;
+  width: 30%;
+  text-transform: uppercase;/* This is easier than having to go back
+  to HTML and manually chaning everyline */
+  margin-left: 1.66% /* used to place the text inline with the photos
+  a margin-left of 1.66% for photos and a margin-left of 1.66% for text */
+}

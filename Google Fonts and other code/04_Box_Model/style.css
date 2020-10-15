@@ -1,0 +1,33 @@
+p {
+
+/*Content - Width and Height*/
+
+width: 50%;
+/*Border this insures that the width is half
+of the body which is the entire page and it
+conforms to half of the window size. We can also
+use #px too! */
+
+border: 2px solid blue;
+
+/*Padding*/
+
+/*padding this is the stuff within the p, padding left
+adds space on the left side. Recall that the space
+coming from the right side is there bc of the 50% Width
+: 10px;*/
+padding-left: 40px;
+
+/*Margin adds the space outside of the element, so this
+makes one bordered element have space from another one
+as well.*/
+/*margin: 100px;*/
+/*margin-top: 500px;*/
+/*margin: 20px 40px 500px 100px
+this is for top, right, bottom, and left;*/
+/*margin: 0 auto 0 auto, this will center an
+element for us, this will set top and bottom
+to o and left and right to auto center.;*/
+margin: 0 auto;
+margin: 50px 20px;
+}
