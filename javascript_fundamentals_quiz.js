@@ -91,7 +91,7 @@ planets.unshift('Mercury'); //add Mercury to the beginning of the array using .u
 planets.push('Saturn'); //add Saturn at the end of the array using .push()
 planets.pop('Saturn'); //now take away Saturn from the end of the array
 
-// concat, includes
+// concat, includes, indexOf, reverse
 const array1 = ['a', 'b', 'c', 'd'];
 const array2 = ['e', 'f', 'g', 'h'];
 const array3 = array1.concat(array2); // array 3 = ['a', 'b', 'c', 'd','e', 'f', 'g', 'h']
@@ -102,3 +102,100 @@ array3.includes('x'); //false
 
 'Blue'.indexOf('l'); //we get 1
 'Blue'.indexOf('z'); //we get -1, bc it's not there
+
+planets.indexOf('Venus'); // output 1
+
+array1.reverse(); //reverses the array to be ['d', 'c', 'b', 'a'];
+
+mimicArray1 = array1.slice(0); // this copies the entire array
+shorterArray1 = array1.slice(3); // this copies just starting the 3rd index: 'a'
+middleArray1 = array1.slice(1, 2); //here the copy starts at index 1 and ends at index 2
+
+// Splice
+const months = ['Jan', 'March', 'April', 'June'];
+months.splice(1, 0, 'Feb', 'Feb2'); //adds Feb as the new index 1, between Jan and March
+// inserts at index 1
+console.log(months);
+// expected output: Array ["Jan", "Feb", "Feb2", "March", "April", "June"]
+
+months.splice(4, 1, 'May');
+// replaces 1 element at index 4
+console.log(months);
+// expected output: Array ["Jan", "Feb", "March", "April", "May"]
+
+cows = ['doug', 'jill', 'bill', 'will'];
+cows.spice(2, 2, 'kill'); //replaces bill and will with kill
+
+// change null to 'Hugo'
+
+// DO NOT TOUCH!!! (please)
+const airplaneSeats = [
+  ['Ruth', 'Anthony', 'Stevie'],
+  ['Amelia', 'Pedro', 'Maya'],
+  ['Xavier', 'Ananya', 'Luis'],
+  ['Luke', null, 'Deniz'],
+  ['Rin', 'Sakura', 'Francisco'],
+];
+
+// YOUR CODE GOES BELOW THIS LINE:
+airplaneSeats[3][1] = 'Hugo';
+
+// using an object {}
+const fitBitData = {
+  totalSteps: 3033030, // key:value
+  totalMiles: 2303,
+  avgCalorieBurn: 2023,
+  workoutsThisWeek: '5 of 7',
+  avgGoodSleep: '2:13',
+  workouts: ['jumping', 'swimming'], //an array of workouts
+  isHealthy: false,
+};
+
+// here is an object literal or object
+let product = {
+  name: 'Gummy Bears',
+  inStock: true,
+  price: 1.99,
+  flavors: ['grape', 'apple', 'cherry'],
+};
+
+// Return a full address like 64 Johnson Ave, Brooklyn, NY 11206
+//PLEASE DON'T TOUCH THIS LINE!
+const restaurant = {
+  name: 'Ichiran Ramen',
+  address: `${Math.floor(Math.random() * 100) + 1} Johnson Ave`,
+  city: 'Brooklyn',
+  state: 'NY',
+  zipcode: '11206',
+};
+
+//YOUR CODE GOES DOWN HERE:
+let fullAddress = `${restaurant.address}, ${restaurant.city}, ${restaurant.state} ${restaurant.zipcode}`;
+
+// change state to MN
+restaurant.state = 'MN';
+restaurant['state'] = 'MN';
+
+// Print out "Da ba dee da ba daa" 6 times, using a for loop
+for (let i = 0; i < 6; i++) {
+  // for (starting value, ending value, count by)
+  console.log('Da ba dee da ba daa');
+}
+
+for (let i = 25; i <= 0; i -= 5) {
+  //decreasing by 5 each time until reaching 0 printing 25,20,15,10,5,0
+  console.log(i);
+}
+
+for (let i = 10; i <= 100; i *= 10) {
+  // multiplying by 10 until reaching 100 printing 10,20,30,40,50,60,70,80,90,100
+  console.log(i);
+}
+
+// print everyones name in uppercase
+const people = ['Scooby', 'Velma', 'Daphne', 'Shaggy', 'Fred']; //DONT TOUCH THIS LINE!
+
+// WRITE YOUR LOOP BELOW THIS LINE:
+for (let i = 0; i < people.length; i++) {
+  console.log(people[i].toUpperCase());
+}
