@@ -199,3 +199,121 @@ const people = ['Scooby', 'Velma', 'Daphne', 'Shaggy', 'Fred']; //DONT TOUCH THI
 for (let i = 0; i < people.length; i++) {
   console.log(people[i].toUpperCase());
 }
+
+// print out the square of each number below
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]; //DON'T CHANGE THIS LINE PLEASE!
+
+// WRITE YOUR LOOP BELOW THIS LINE:
+for (let num of numbers) {
+  console.log(num * num);
+}
+
+// call a function that prints out "<3"
+// Write your function here:
+function printHeart() {
+  console.log('<3');
+}
+printHeart();
+
+// Make a function that uppercases a string and outputs it 3 times
+// DEFINE YOUR FUNCTION:
+function rant(message) {
+  for (let i = 0; i < 3; i++) {
+    console.log(message.toUpperCase());
+  }
+}
+rant('I hate beets');
+
+// make a function that if both inputs are 1 Print Snake Eyes!
+// define isSnakeEyes below:
+function isSnakeEyes(dice1, dice2) {
+  if ((dice1 & dice2) === 1) {
+    console.log('Snake Eyes!');
+  } else {
+    console.log('Not Snake Eyes!');
+  }
+}
+
+function multiply(num1, num2) {
+  return num1 * num2;
+}
+
+function isShortsWeather(temperature) {
+  if (temperature >= 75) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+// make the following happen
+// lastElement([3,5,7]) return 7
+// lastElement([3]) return 3
+// lastElement([]) return null
+function lastElement(array) {
+  if (array == '') {
+    return null;
+  } else {
+    return array[array.length - 1];
+  }
+}
+
+// capitalize first letter of the string
+function capitalize(string) {
+  return `${string[0].toUpperCase()}${string.slice(1)}`;
+} //so we return the first character captitalized, and the rest of the string starting from the first index
+
+// sumArray([3,5,7]) return 15
+function sumArray(array) {
+  let sum = 0;
+  for (let i = 0; i < array.length; i++) {
+    sum += array[i];
+  }
+  return sum;
+}
+
+// DEFINE YOUR FUNCTION BELOW:
+function returnDay(number) {
+  if (number === 1) {
+    return `Monday`;
+  } else if (number === 2) {
+    return `Tuesday`;
+  } else if (number === 3) {
+    return `Wednesday`;
+  } else if (number === 4) {
+    return `Thursday`;
+  } else if (number === 5) {
+    return `Friday`;
+  } else if (number === 6) {
+    return `Saturday`;
+  } else if (number === 7) {
+    return `Sunday`;
+  } else {
+    return null;
+  }
+}
+
+// Question 1:
+// What is printed to the console when this code runs?
+
+let animal = 'Giant Pacific Octopus';
+function observe() {
+  let animal = 'Pajama Squid';
+  console.log(animal);
+}
+observe();
+
+// answer: Pajama Squid //recall theses two variables aren't in the same scope
+
+// Question 2:
+// What is the result of running the following code:
+
+const creature = 'Common Sea Dragon';
+
+function scubaDive() {
+  const creature = 'Spanish Dancer'; //A type of sea slug
+  console.log(creature);
+}
+
+scubaDive();
+// answer Spanish Dancer //recall theses two variables aren't in the same scope

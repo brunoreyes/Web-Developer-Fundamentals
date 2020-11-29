@@ -33,8 +33,8 @@ for (let i = 0; i <= seatingChart.length; i++) {
   }
 }
 
-let targetNum = Math.floor(Math.random() * 10);
-let guess = Math.floor(Math.random() * 10);
+let targetNum = Math.floor(Math.random() * 10); //math.floor chops off the decimal, 
+let guess = Math.floor(Math.random() * 10); //math.random gives us a random decimal and we * by 10
 
 while (true) {
   guess = Math.floor(Math.random() * 10);
