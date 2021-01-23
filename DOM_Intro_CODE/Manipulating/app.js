@@ -107,6 +107,7 @@ for (let link of allLinks) {
 // }
 
 
+// Challenge: Invert the li elements
 // ClassList
 // h2.setAttribute('class','purple');
 
@@ -138,8 +139,63 @@ for (let link of allLinks) {
 //     </ul>
 // </body>
 
+// Solution:
 // const listItems = document.querySelectorAll('li');
 
 // for ( let listItem of listItems){
 //     listItem.classList.toggle('highlight');
 // }
+
+
+// const paragraph = firstBold.parentElement
+// paragraph.children[0]
+
+// squareImg.nextSibling // giving corresponding node // which in some cases is white space: "return char   "
+
+// squareImg.nextElementSibling gives the actual element sibling so if img, then the next img
+
+// creating an element: const newImg = document.createElement('img')
+// newImg.src('image address')
+// document.body.appendChild(newImage) // adding the img to the end of the body
+// newImg.classList.add('square')
+// newImg.classList.add('square')
+// const newH3 = document.createElement('h3') // <h3></h3>
+// newH3.innerText = "I am new!"
+// document.body.appendChild(newH3) // <h3>I am new!</h3>
+
+// const p = document.querySelector('p')// selecting the paragraph element
+// p.append('i am new text yay!') // .append allows us to add multiple nodes, doesn't work on Internet Explorer b/c too new
+// appending two things and making them the last child of the element // p.append('i am new text yay!', 'i am more text!')
+
+// const newB = document.createElement('b');
+// newB.prepend(newB) // prepend allows you to add a node to the beginning of an element instead of append making it the last
+
+// instertAdjacentElement allows to insert an item within an element
+// for ex: in header <h2>Silkie Chickens</h2> 
+// h2.append('Are adorable chickens')
+// const h1 = document.querySelector('h1sxwwaZ')
+// h1.insertAdjacentElement('afterend', h2)
+// h1.nextElementSibling // h2
+
+
+// Challenge:
+// Create exactly 100 new buttons with text in them and append them to the constianer div
+
+{/* <body>
+
+    <div id="container">
+    
+    </div>
+</body>
+
+Solution:
+
+const container = document.getElementById('container');
+
+for (let i = 0; i < 100; i++) {
+    const heyButton = document.createElement('button');
+    heyButton.innerText = "Hey!";
+    container.appendChild(heyButton);
+} */}
+
+// .removeChild() removes a child node while .remove() removes an object on the tree it belongs to (doesn't work in Int. Explorer)
