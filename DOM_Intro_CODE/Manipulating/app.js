@@ -111,3 +111,35 @@ for (let link of allLinks) {
 // h2.setAttribute('class','purple');
 
 // </> = curl code
+
+// h2.setAttribute('class','${currentClasses} purple');
+
+// h2.classList .add(), .remove('border'), .contains(),
+// h2.classList.toggle('purple');
+
+// Invert the background colors of list items
+// background-color: #B10DC9;
+// }
+
+// .highlight {
+//   background-color: #7FDBFF;
+// }
+
+
+// <body>
+//     <!--LEAVE THIS FILE ALONE!-->
+//     <ul>
+//         <li>Hello</li>
+//         <li class="highlight">Hello</li>
+//         <li>Hello</li>
+//         <li>Hello</li>
+//         <li class="highlight">Hello</li>
+//         <li>Hello</li>
+//     </ul>
+// </body>
+
+// const listItems = document.querySelectorAll('li');
+
+// for ( let listItem of listItems){
+//     listItem.classList.toggle('highlight');
+// }
