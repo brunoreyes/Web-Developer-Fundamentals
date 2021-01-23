@@ -105,3 +105,9 @@ for (let link of allLinks) {
 //     span.style.color = colors[count];
 //     count++;
 // }
+
+
+// ClassList
+// h2.setAttribute('class','purple');
+
+// </> = curl code
