@@ -113,10 +113,6 @@ const addTweet = (username, tweet) => {
   tweetsContainer.append(newTweet);
 };
 
-
-
-
-
 const form = document.querySelector('form');
 const list = document.querySelector('#list');
 
@@ -137,42 +133,35 @@ function listItem(product, qty) {
   list.appendChild(listItem);
 }
 
-
-
-
-
 const input = document.querySelector('input');
 const h1 = document.querySelector('h1');
 
 input.addEventListener('input', function (e) {
-    h1.innerText = input.value;
-})
-
-
-const input = document.querySelector('input');
-const h1 = document.querySelector('h1');
-
-input.addEventListener('input', function (e) {
-    h1.innerText = `Welcome ${input.value}`;
-})
-    
-
-
-const input = document.querySelector('input');
-const h1 = document.querySelector('h1');
-
-input.addEventListener('input', function (e) {
-    h1.innerText = `Welcome, ${input.value}`;
-    if(!input.value){
-        h1.innerText = 'Enter Your Username';
-    }
+  h1.innerText = input.value;
 });
 
+const input = document.querySelector('input');
+const h1 = document.querySelector('h1');
 
-// event bubbling - When an event happens on an element, it first runs the handlers on it, 
+input.addEventListener('input', function (e) {
+  h1.innerText = `Welcome ${input.value}`;
+});
+
+const input = document.querySelector('input');
+const h1 = document.querySelector('h1');
+
+input.addEventListener('input', function (e) {
+  h1.innerText = `Welcome, ${input.value}`;
+  if (!input.value) {
+    h1.innerText = 'Enter Your Username';
+  }
+});
+
+// event bubbling - When an event happens on an element, it first runs the handlers on it,
 // then on its parent, then all the way up on other ancestors.
 
-{/* <style>
+{
+  /* <style>
   body * {
     margin: 10px;
     border: 1px solid blue;
@@ -183,11 +172,11 @@ input.addEventListener('input', function (e) {
   <div onclick="alert('div')">DIV
     <p onclick="alert('p')">P</p>
   </div>
-</form> */}
+</form> */
+}
 
 // on the event object there is a method called stopPropagation()
-// for ex e.stopPropagation() is used to prevent bubbling, when event keeps going up 
-
+// for ex e.stopPropagation() is used to prevent bubbling, when event keeps going up
 
 // event delegation
 
