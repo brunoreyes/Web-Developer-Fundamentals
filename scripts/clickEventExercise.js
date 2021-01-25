@@ -113,6 +113,10 @@ const addTweet = (username, tweet) => {
   tweetsContainer.append(newTweet);
 };
 
+
+
+
+
 const form = document.querySelector('form');
 const list = document.querySelector('#list');
 
@@ -132,3 +136,34 @@ function listItem(product, qty) {
   listItem.innerHTML = `<b>${product} - </b> ${qty}`;
   list.appendChild(listItem);
 }
+
+
+
+
+
+const input = document.querySelector('input');
+const h1 = document.querySelector('h1');
+
+input.addEventListener('input', function (e) {
+    h1.innerText = input.value;
+})
+
+
+const input = document.querySelector('input');
+const h1 = document.querySelector('h1');
+
+input.addEventListener('input', function (e) {
+    h1.innerText = `Welcome ${input.value}`;
+})
+    
+
+
+const input = document.querySelector('input');
+const h1 = document.querySelector('h1');
+
+input.addEventListener('input', function (e) {
+    h1.innerText = `Welcome, ${input.value}`;
+    if(!input.value){
+        h1.innerText = 'Enter Your Username';
+    }
+});
