@@ -167,3 +167,30 @@ input.addEventListener('input', function (e) {
         h1.innerText = 'Enter Your Username';
     }
 });
+
+
+// event bubbling - When an event happens on an element, it first runs the handlers on it, 
+// then on its parent, then all the way up on other ancestors.
+
+{/* <style>
+  body * {
+    margin: 10px;
+    border: 1px solid blue;
+  }
+</style>
+
+<form onclick="alert('form')">FORM
+  <div onclick="alert('div')">DIV
+    <p onclick="alert('p')">P</p>
+  </div>
+</form> */}
+
+// on the event object there is a method called stopPropagation()
+// for ex e.stopPropagation() is used to prevent bubbling, when event keeps going up 
+
+
+// event delegation
+
+// tweetsContainer.addEvenetListener('click', function(e){
+// e.target.nodeName === 'LI' && e.target.remove();
+// });
