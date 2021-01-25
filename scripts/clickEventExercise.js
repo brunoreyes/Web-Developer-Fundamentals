@@ -90,7 +90,7 @@ window.addEventListener('keydown', function (e) {
 }
 
 const tweetForm = document.querySelector('#tweetForm');
-const tweetForm = document.querySelector('#tweets');
+const tweetsContainer = document.querySelector('#tweets');
 
 tweetForm.addEventListener('submit', function (e) {
   // console.log(tweetForm.nextElementSibling.username.value);
@@ -105,9 +105,30 @@ tweetForm.addEventListener('submit', function (e) {
 
 const addTweet = (username, tweet) => {
   const newTweet = document.createElement('li');
+  newList.innerHTML = `${username.value} ${tweet.value}`;
   const bTag = document.createElement('b');
   bTag.append(username);
   newTweet.append(bTag);
   newTweet.append(`-${tweet}`);
   tweetsContainer.append(newTweet);
 };
+
+const form = document.querySelector('form');
+const list = document.querySelector('#list');
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const product = form.elements.product;
+  const qty = form.elements.qty;
+
+  listItem(product.value, qty.value);
+  product.value = '';
+  qty.value = '';
+});
+
+function listItem(product, qty) {
+  const listItem = document.createElement('li');
+  listItem.innerHTML = `<b>${product} - </b> ${qty}`;
+  list.appendChild(listItem);
+}
