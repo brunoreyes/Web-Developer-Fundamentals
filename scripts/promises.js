@@ -52,44 +52,66 @@ makeRequest(
 
 const request = fakeRequestPromise('yelp/com/api/coffee/page1'); // shouln't return anything
 
-const request = fakeRequestPromise('yelp/com/api/coffee/page3'); // shouln't return anything
+// No more needing to nest, instead it will run then()'s and catch activates if any then() fails
+// this is called a promise chain, where dependent, asynchronous actions happen
+// Promises are resolved/rejected with values
+
 request
-  .then(() => {
-    // .then() runs if the promise is resolved
-    console.log('Promised resolved, It worked');
+  .then((data) => {
+    console.log('It worked (page 1)');
+    console.log(data);
+    return fakeRequestPromise('yelp.com/api.coffee.page2');
   })
-  .catch(() => {
-    // .catch() runs if the promise is rejected
-    console.log('Promised rejected, It did not work');
+  .then(() => {
+    console.log('It worked (page 2)');
+    return fakeRequestPromise('yelp.com/api.coffee.page3');
+  })
+  .then(() => {
+    console.log('It worked (page 3)');
+  })
+  .catch((error) => {
+    // catch() will run if any request fails/ is rejected
+    console.log('Oh no, a request failed');
+    console.log(error);
   });
 
+// request
+//   .then(() => {
+//     // .then() runs if the promise is resolved
+//     console.log('Promised resolved, It worked');
+//   })
+//   .catch(() => {
+//     // .catch() runs if the promise is rejected
+//     console.log('Promised rejected, It did not work');
+//   });
+
 // ... still nesting
-request
-  .then(() => {
-    // .then() runs if the promise is resolved
-    console.log('Promised resolved, It worked');
-    const request = fakeRequestPromise('yelp/com/api/coffee/page2'); // shouln't return anything
-    request
-      .then(() => {
-        // .then() runs if the promise is resolved
-        console.log('Promised resolved, It worked');
-        const request = fakeRequestPromise('yelp/com/api/coffee/page3'); // shouln't return anything
-        request
-          .then(() => {
-            // .then() runs if the promise is resolved
-            console.log('Promised resolved, It worked');
-          })
-          .catch(() => {
-            // .catch() runs if the promise is rejected
-            console.log('Promised rejected, It did not work');
-          });
-      })
-      .catch(() => {
-        // .catch() runs if the promise is rejected
-        console.log('Promised rejected, It did not work');
-      });
-  })
-  .catch(() => {
-    // .catch() runs if the promise is rejected
-    console.log('Promised rejected, It did not work');
-  });
+// request
+//   .then(() => {
+//     // .then() runs if the promise is resolved
+//     console.log('Promised resolved, It worked');
+//     const request = fakeRequestPromise('yelp/com/api/coffee/page2'); // shouln't return anything
+//     request
+//       .then(() => {
+//         // .then() runs if the promise is resolved
+//         console.log('Promised resolved, It worked');
+//         const request = fakeRequestPromise('yelp/com/api/coffee/page3'); // shouln't return anything
+//         request
+//           .then(() => {
+//             // .then() runs if the promise is resolved
+//             console.log('Promised resolved, It worked');
+//           })
+//           .catch(() => {
+//             // .catch() runs if the promise is rejected
+//             console.log('Promised rejected, It did not work');
+//           });
+//       })
+//       .catch(() => {
+//         // .catch() runs if the promise is rejected
+//         console.log('Promised rejected, It did not work');
+//       });
+//   })
+//   .catch(() => {
+//     // .catch() runs if the promise is rejected
+//     console.log('Promised rejected, It did not work');
+//   });
