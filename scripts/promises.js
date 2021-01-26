@@ -115,3 +115,35 @@ request
 //     // .catch() runs if the promise is rejected
 //     console.log('Promised rejected, It did not work');
 //   });
+
+// CREATING A NEW PROMISE OF MY OWN
+new Promise((resolve, reject) => {
+  resolve(); // getting a resolved problem
+});
+
+const fakeRequest = (url) => {
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve();
+    }, 1000);
+  });
+};
+
+const delayedColorChange = (color, delay) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      document.body.style.backgroundColor = color;
+    }, delay);
+  });
+};
+
+// Promises make it easier to clean up code
+delayedColorChange('red', 1000)
+  .then(() => delayedColorChange('orange', 1000))
+  .then(() => delayedColorChange('pink', 1000))
+  .then(() => delayedColorChange('yellow', 1000))
+  .then(() => delayedColorChange('red', 1000))
+  .then(() => delayedColorChange('green', 1000))
+  .then(() => delayedColorChange('orange', 1000));
+// .catch() runs if the promise is rejected
+//         console.log('Promised rejected, It did not work');
