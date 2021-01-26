@@ -45,3 +45,35 @@ const parsedData = JSON.parse(data);
 
 // accessing the object and extracting the wanted data
 parsedData.ticker.price;
+
+// To go the other direction & take data from a JS object and convert it into JSON format I use JSON.stringify()
+// JSON.stringify() is useful for sending info to an API, all instances of undefined are replaced with null.
+
+
+// http://api.tvmaze.com/lookups/shows?imbd = tt471830&color=purple
+// Within Postman in a URL I look for the query: " /shows?imbd..."
+// id: "imbd = tt471830" and type of data "&color=purple"
+
+// expecting key most times gives an auto-complete
+
+
+// XMLHttpRequest was the original and harder way of sending request (POST/GET/PUT/DELETE):
+
+const req = new XMLHttpRequest();
+
+req.onload = function () {
+    console.log('ALL DONE WITH THE REQUEST');
+    console.log(this);
+}
+
+req.onerror = function () {
+    console.log('ERROR!!!');
+    console.log(this);
+}
+
+req.open('GET', 'https://api.cryptonator.com/api/ticker/btc-usd'); // if URL is wrong, error callback runs
+req.send();
+
+// now go into brower's inspect tool, go into console, open nested XMLHttpRequest and get data from there.
+
+
