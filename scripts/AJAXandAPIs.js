@@ -49,31 +49,56 @@ parsedData.ticker.price;
 // To go the other direction & take data from a JS object and convert it into JSON format I use JSON.stringify()
 // JSON.stringify() is useful for sending info to an API, all instances of undefined are replaced with null.
 
-
 // http://api.tvmaze.com/lookups/shows?imbd = tt471830&color=purple
 // Within Postman in a URL I look for the query: " /shows?imbd..."
 // id: "imbd = tt471830" and type of data "&color=purple"
 
 // expecting key most times gives an auto-complete
 
-
 // XMLHttpRequest was the original and harder way of sending request (POST/GET/PUT/DELETE):
 
 const req = new XMLHttpRequest();
 
 req.onload = function () {
-    console.log('ALL DONE WITH THE REQUEST');
-    console.log(this);
-}
+  console.log('ALL DONE WITH THE REQUEST');
+  console.log(this);
+};
 
 req.onerror = function () {
-    console.log('ERROR!!!');
-    console.log(this);
-}
+  console.log('ERROR!!!');
+  console.log(this);
+};
 
 req.open('GET', 'https://api.cryptonator.com/api/ticker/btc-usd'); // if URL is wrong, error callback runs
 req.send();
 
 // now go into brower's inspect tool, go into console, open nested XMLHttpRequest and get data from there.
 
+// The better and more efficient way: Fetch APIs, the newer way of making request via JS that support promises
+// so no need to worry about callbacks
 
+// fetch is not ideal, but axios is, fetch is the native version of axios, axios is even easier to use.
+// fetch('https://api.cryptonator.com/api/ticker/btc-usd') // fetch resolves the promise as soon as it gets the headers
+//     .then(response => {  // basically meaning that there is no gurantee to have the body we want
+//         console.log('RESPONSE, WAITING TO PARSE...', response); // this is when we use .json() , returning a promise
+//         return response.json() // parsing the data using .json(), returing a promise itself
+//         // basically returning a promise when all data is back and has been parsed as JSON, asynchornously waiting for
+//         // the body to arrive.
+//     })
+//     .then(data => {
+//         console.log('DATA PARSED...');
+//     })
+//     .catch(error => {
+//     console.log('OH NO! ERROR!', error);
+//     })
+
+const fetchBitcoinPrice = async () => {
+  try {
+    const res = await fetch('https://api.cryptonator.com/api/ticker/btc-usd');
+    // console.log(res);
+    const data = await res.json();
+    console.log(data.ticker.price);
+  } catch (e) {
+    console.log('Something went wrong!', e);
+  }
+};
