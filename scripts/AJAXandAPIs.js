@@ -129,3 +129,35 @@ const fetchBitcoinPrice = async () => {
     console.log('Error', error);
   }
 };
+
+// Always read the docs for each API, often they vary and have certain configs or are nested differently
+
+
+const jokes = document.querySelector('#jokes');
+const button = document.querySelector('button');
+
+
+const addNewJoke =  async ()  => { // using async keyword to enable await 
+    const jokeText = await getDadJoke();
+    console.log(jokeText);
+    const newJokeLine = document.createElement('li'); // creating a new joke in the form of a line
+    newJokeLine.append(jokeText);
+    jokes.append(newJokeLine);
+}
+
+const getDadJoke = async () => {
+    // Adding a try and catch just incase the URL is incorrectly typed
+    try {
+        // This specific API case made us have header and accept api's
+        const config = { headers: { Accept: 'application/json' } }; // json parsed to a JS object
+        const res = await axios.get('https://icanhazdadjoke.com/', config);
+          // console.log(res.data.joke);
+          return res.data.joke;   
+    } catch (error) {
+        return "No jokes avaiable! Sorry :("
+        
+    }
+};
+
+button.addEventListener('click', addNewJoke);
+
