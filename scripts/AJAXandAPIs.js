@@ -92,13 +92,40 @@ req.send();
 //     console.log('OH NO! ERROR!', error);
 //     })
 
+// const fetchBitcoinPrice = async () => {
+//   try {
+//     const res = await fetch('https://api.cryptonator.com/api/ticker/btc-usd');
+//     // console.log(res);
+//     const data = await res.json();
+//     console.log(data.ticker.price);
+//   } catch (e) {
+//     console.log('Something went wrong!', e);
+//   }
+// };
+
+// AXIOS, an easy to use library for making HTTP rquest
+// without AXIOS we have to worry about the 1st promise and parsing data
+
+// using axios: put in head of html: <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+// require axios isn't necessary
+
+// axios is promised-based and built on top of fetch but is a little more condensed
+axios
+  .get('https://api.cryptonator.com/api/ticker/btc-usd')
+  .then((response) => {
+    console.log(response.data.ticker.price);
+  })
+  .catch((error) => {
+    console.log('ERROR', error);
+  });
+
 const fetchBitcoinPrice = async () => {
   try {
-    const res = await fetch('https://api.cryptonator.com/api/ticker/btc-usd');
-    // console.log(res);
-    const data = await res.json();
-    console.log(data.ticker.price);
-  } catch (e) {
-    console.log('Something went wrong!', e);
+    const res = await axios.get(
+      'https://api.cryptonator.com/api/ticker/btc-usd'
+    );
+    console.log(res.data.ticker.price);
+  } catch (error) {
+    console.log('Error', error);
   }
 };
