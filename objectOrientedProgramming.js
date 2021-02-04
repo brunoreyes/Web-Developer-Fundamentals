@@ -1,5 +1,9 @@
 //This functions makes and returns an object every time it is called.
 // The resulting objects all follow the same "recipe"
+
+// converts rgb colors to hexidecimal (hex) color in a factory function,
+// which makes an object that automatically has a hex and rgb method and
+// stores the rgb value as values stored on the rgb object
 function makeColor(r, g, b) {
   const color = {};
   color.r = r;
