@@ -60,8 +60,8 @@ console.dir(document.quertSelector('h1'));
 
 function Color(r, g, b) {
   // const object = {} this happens when key word "new" is used
-  this.r = r;
-  this.g = g;
+  this.r = r; // this refers to a newly created object
+  this.g = g; // objects r,g, and b will be linked into any new instance of the Color function
   this.b = b;
   console.log(this); // this refers to the window, the gobal scope or nearest object (the window)
   // unless the keyword "new" is used like below
@@ -89,3 +89,22 @@ Color.prototype.rgba = function () {};
 const color1 = new Color(40, 255, 60);
 
 const color2 = new Color(0, 0, 0);
+
+// To create a class it must use the class keyword and constructor keyword within it
+class Color {
+    // A constructor executes whenever a new class Color is created
+    constructor(r, g, b, name) {
+        console.log('Inside Constructor');       
+        console.log(r, g, b, name); 
+        this.r = r; 
+        this.g = g; 
+        this.b = b;
+        this.name = name
+        console.log(r, g, b, name); 
+    }
+    greet() { // exectued by doing c1.greet() 
+        return `HELLO FROM ${this.name}`
+    }
+}
+
+const c1 = new Color(255, 67, 89, 'tomato');
