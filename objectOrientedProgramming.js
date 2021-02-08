@@ -55,3 +55,37 @@ const request = new XMLHttpRequest(); // makes an object with a bunch of
 // properties and methods already backed in
 
 console.dir(document.quertSelector('h1'));
+
+// "hi".slice === "bye".slice
+
+function Color(r, g, b) {
+  // const object = {} this happens when key word "new" is used
+  this.r = r;
+  this.g = g;
+  this.b = b;
+  console.log(this); // this refers to the window, the gobal scope or nearest object (the window)
+  // unless the keyword "new" is used like below
+}
+
+// Using the new keyword creates a blank JS object:
+// Links (sets the constructor of) this object to another object;
+// Passes the newly created object from Step 1 as this context;
+// Returns this if the function doesn't return its own object.
+new Color(255, 40, 100);
+
+Color.prototype.rgb = function () {
+  const { r, g, b } = this;
+  return `rgb(${r}, ${g}, ${b})`;
+};
+
+Color.prototype.hex = function () {
+  const { r, g, b } = this;
+  return '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+};
+
+// do not use arrow functions when utilizing keyword "this", because it behaves differently
+Color.prototype.rgba = function () {};
+
+const color1 = new Color(40, 255, 60);
+
+const color2 = new Color(0, 0, 0);
