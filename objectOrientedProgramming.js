@@ -91,7 +91,8 @@ const color1 = new Color(40, 255, 60);
 const color2 = new Color(0, 0, 0);
 
 // To create a class it must use the class keyword and constructor keyword within it
-class Color {
+// always capitalize class name
+class Color { // this refers to the instance of the object
     // A constructor executes whenever a new class Color is created
     constructor(r, g, b, name) {
         console.log('Inside Constructor');       
@@ -99,12 +100,29 @@ class Color {
         this.r = r; 
         this.g = g; 
         this.b = b;
-        this.name = name
+        this.name = name 
         console.log(r, g, b, name); 
     }
     greet() { // exectued by doing c1.greet() 
         return `HELLO FROM ${this.name}`
     }
+    innerRGB(){
+        const { r, g, b } = this;
+        return `${r},${g},${b}`;
+    };
+    
+    outerRGB(){
+        return `rgb(${this.innerRGB()})`;
+    };
+    
+    rgba(a=1){
+        return `rgba(${this.innerRGB()}, ${a})`;
+    }
 }
 
-const c1 = new Color(255, 67, 89, 'tomato');
+
+const c1 = new Color(255, 67, 89, 'tomato'); // constructor for class Color
+                                            // runs automatically when instantiated like here
+const white = new Color(255, 255, 255, 'white');
+
+document.body.style.backgroundColor = white.rgba(.5);
