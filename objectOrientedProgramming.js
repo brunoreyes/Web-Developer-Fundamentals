@@ -126,3 +126,13 @@ const c1 = new Color(255, 67, 89, 'tomato'); // constructor for class Color
 const white = new Color(255, 255, 255, 'white');
 
 document.body.style.backgroundColor = white.rgba(.5);
+
+
+// hsl Hue, Saturation and Lightness
+
+this.h = h;
+this.s = s;
+this.l = l;
+
+"hsl(130, 80%, 40%)"
+
