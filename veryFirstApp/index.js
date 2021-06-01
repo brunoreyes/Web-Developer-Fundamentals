@@ -40,6 +40,23 @@ app.listen(8080, () => {
   console.log('Listening on port 8080!');
 });
 
+// /r/SOMETHINGHERE
+// using : we are not enforcing the name of the sub reddit
+// so as long as it starts with /r/:theNameCanBeAnything
+// except you cannot add another item, because it is a different pattern
+// for ex: you cannot do /r/:theNameCanBeAnything/anotherThing
+
+// So we are defining a pattern, not an exact match
+// app.get('/r/:subreddit', (req, res) => {
+app.get('/r/:subreddit/:postId', (req, res) => {
+  // res.send('THIS IS A SUBREDDIT!');
+  // console.log(req.params); // { subreddit: 'cqts' } if I typed in cqts
+  const { subreddit, postId } = req.params;
+  res.send(
+    `<h1>Viewing the postId ${postId} on the ${subreddit} subreddit </h1>`
+  );
+});
+
 app.get('/dogs', (req, res) => {
   res.send('WOOF!');
 });
