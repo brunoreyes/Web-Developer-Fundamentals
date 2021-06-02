@@ -62,7 +62,15 @@ app.get('/dogs', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  res.send('This is the home page!');
+  res.send('Welcome to the home page!');
+});
+
+app.get('/search', (req, res) => {
+  const { q } = req.query;
+  if (!q) {
+    console.log('Nothing found if nothing searched');
+  }
+  res.send(`<h1>Search results for: ${q}</h1>`); // http://localhost:8080/search?q=cat&color=green
 });
 
 // make sure app.get * is at the bottom of the page, bc routes are matched in order
@@ -76,3 +84,6 @@ app.get('*', (req, res) => {
 
 // Recall when trying to boot up a port, go within the app file and
 // not directly in the node modules of that app
+
+// nodemon will restart the server when any changes happen
+// makes it easier than having to restart the server everytime
